@@ -8,11 +8,11 @@ Feature: Shopping cart for the customers selected items
 		Then the cart has <expected_list_of_books>
 
 		Examples:
-			| list_of_books				  | book			  | expected_list_of_items |
+			| list_of_books				  | book			  | expected_list_of_books |
 			| [["Catcher in the Rye", 199]]		  | ["Catcher in the Rye", 199]	  | []			   |
 			| [["Dracula", 129], ["Neverwhere", 149]] | ["Dracula", 129]		  | [["Neverwhere", 149]]  |
 
-	Scenario Outline: The shopping cart always displays the correct total and number of books
+	Scenario Outline: The shopping cart always displays the correct total price and number of books
 		Given the cart has <list_of_books>
 		When the user opens the shopping cart
 		Then the total price is <expected_total>
@@ -27,7 +27,7 @@ Feature: Shopping cart for the customers selected items
 		Given the user is viewing the shopping cart page
 		And the cart has <list_of_books>
 		When the user clicks on the clear cart button
-		Then the list of items is empty
+		Then the cart is empty
 
 		Examples:
 			| list_of_books					|

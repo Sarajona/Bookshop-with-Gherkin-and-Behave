@@ -42,7 +42,7 @@ def step_then_item_is_removed(context, expected_list_of_books):
         new_book = Book(title, price)
         expected_cart.append(new_book)
     assert context.cart == expected_cart 
-    print(f"The cart has correct contents ")
+    print(f"The cart has correct contents")
 
 @when(u'the user opens the shopping cart')
 def step_when_open_cart(context):
@@ -63,8 +63,8 @@ def step_then_total_is_correct(context, expected_total):
     assert context.total == int(expected_total)
     print(f"the total price is {expected_total}")                   
 
-@then(u'it says that there are {book_count} books in the cart')
-def step_then_count_is_correct(context,book_count):
+@then(u'the book count is {book_count}')
+def step_then_count_is_correct(context, book_count):
     assert context.count == int(book_count)
     print(f"Book count is {book_count}")
 
@@ -75,7 +75,7 @@ def step_when_clicks_clear(context):
     context.cart.clear()
     print("The cart has been cleared")
 
-@then(u'the list of items is empty')
+@then(u'the cart is empty')
 def step_then_cart_empty(context):
     assert context.cart == []
-    print("the cart is now empty")
+    print("the cart is empty")
