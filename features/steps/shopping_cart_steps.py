@@ -6,10 +6,14 @@ class Book:
         self.title = title
         self.price = price
         self.copy_count = copy_count
+
     def __eq__(self, other):
         if isinstance(other, Book):
             return self.title == other.title and self.price == other.price and self.copy_count == other.copy_count
         return False
+
+    def __repr__(self):
+        return f"{self.title} ({self.price} kr, {self.copy_count} pcs)"
 
 @given(u'the user is viewing the details page of a book')
 def step_given_viewing_(context):
